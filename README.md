@@ -37,6 +37,11 @@ docker compose up -d --build
 # Ardından ingest işlemini tamamlamak için:
 docker exec -it api python -m app.ingest
 
+# (İlk çalıştırmada Hugging Face'ten BGE-M3 ve BGE-Reranker modelleri indirilecek (~4 GB toplam).
+# Bu işlem sırasında tokenizer.json, pytorch_model.bin, model.safetensors gibi dosyalar otomatik olarak indirilir.
+# İndirme tamamlandıktan sonra ingest işlemi devam eder ve Qdrant veritabanına veri yüklenir.)
+
+
 # 6) Servisleri durdurmak için
 docker compose down
 # (veya sadece geçici durdurma için: docker compose stop)
