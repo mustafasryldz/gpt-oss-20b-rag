@@ -1,0 +1,106 @@
+# -----------------------------
+# OS & Editor cruft
+# -----------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+*.old
+.idea/
+.vscode/
+
+# -----------------------------
+# Python / FastAPI (api, backend)
+# -----------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.pyre/
+.venv/
+venv/
+env/
+ENV/
+pip-wheel-metadata/
+.python-version
+.coverage
+coverage/
+htmlcov/
+.cache/
+.ruff_cache/
+
+# Local env & secrets
+.env
+*.env.local
+
+# -----------------------------
+# Node / React (ui)
+# -----------------------------
+ui/node_modules/
+ui/.pnpm-store/
+ui/.yarn/
+ui/.yarn/cache/
+ui/.turbo/
+ui/.parcel-cache/
+ui/.eslintcache
+ui/.vite/
+ui/.vite_deps/
+ui/dist/
+ui/build/
+
+# Lockfiles
+!ui/package-lock.json
+!ui/pnpm-lock.yaml
+!ui/yarn.lock
+
+# -----------------------------
+# Docker data volumes & runtime state
+
+# -----------------------------
+volumes/
+qdrant_storage/
+docker-data/
+**/lost+found/
+
+# Prometheus/Grafana çalışma verileri
+**/prometheus/data/
+**/prometheus/wal/
+**/prometheus/chunks_head/
+**/prometheus/snapshots/
+**/grafana/data/
+**/grafana/logs/
+**/grafana/plugins/
+
+# Ollama & model/cuda cache’leri
+ollama/
+hf_cache/
+huggingface/
+huggingface_cache/
+transformers_cache/
+
+# -----------------------------
+# Logs & temp
+# -----------------------------
+logs/
+*.log
+*.pid
+tmp/
+temp/
+.cache/
+
+# -----------------------------
+# Build artifacts (genel)
+# -----------------------------
+dist/
+build/
+*.tsbuildinfo
+
+
