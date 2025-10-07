@@ -19,14 +19,22 @@ cp .env.example .env
 # Windows PowerShell:
 # copy .env.example .env
 
-# 3) Ollama modelini indir
-ollama pull gpt-oss:20b
+# 3) Docker image'larını build et
+docker compose build
 
-# Eğer Ollama Docker container’ı içinde çalışıyorsa:
+# 4) Servisleri başlat (ollama, api, ui, qdrant, grafana, prometheus)
+docker compose up -d
+
+# 5) Ollama container'ı içinde modeli indir
 docker exec -it ollama ollama pull gpt-oss:20b
 
-# 4) Docker Compose ile tüm servisleri ayağa kaldır
-docker compose up -d --build
+# 6) Veri ingest için data klasörünü oluştur
+mkdir data
+# Windows: mkdir data
+# Veri dosyalarını buraya aktar
+
+# 7) Ingest işlemini başlat
+docker exec -it api python -m app.ingest
 
 # Servis adresleri:
 # Frontend (React UI):   http://localhost:3000
