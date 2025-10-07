@@ -35,6 +35,9 @@ mkdir data
 
 # 7) Ingest işlemini başlat
 docker exec -it api python -m app.ingest
+# (İlk çalıştırmada Hugging Face'ten BGE-M3 ve BGE-Reranker modelleri indirilecek (~4 GB toplam).
+# Bu işlem sırasında tokenizer.json, pytorch_model.bin, model.safetensors gibi dosyalar otomatik olarak indirilir.
+# İndirme tamamlandıktan sonra ingest işlemi devam eder ve Qdrant veritabanına veri yüklenir.)
 
 # Servis adresleri:
 # Frontend (React UI):   http://localhost:3000
@@ -43,16 +46,8 @@ docker exec -it api python -m app.ingest
 # Prometheus metrics:    http://localhost:8000/metrics
 # Grafana dashboard:     http://localhost:3001
 
-# 5) Veri ingest etmek için proje klasöründe "data" klasörü oluştur
-# Ingest edilecek verileri "data" klasörünün içine aktar.
-# Ardından ingest işlemini tamamlamak için:
-docker exec -it api python -m app.ingest
-
-# (İlk çalıştırmada Hugging Face'ten BGE-M3 ve BGE-Reranker modelleri indirilecek (~4 GB toplam).
-# Bu işlem sırasında tokenizer.json, pytorch_model.bin, model.safetensors gibi dosyalar otomatik olarak indirilir.
-# İndirme tamamlandıktan sonra ingest işlemi devam eder ve Qdrant veritabanına veri yüklenir.)
 
 
-# 6) Servisleri durdurmak için
+# 8) Servisleri durdurmak için
 docker compose down
 # (veya sadece geçici durdurma için: docker compose stop)
