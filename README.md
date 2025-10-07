@@ -33,8 +33,8 @@ docker compose up -d --build
 # Grafana dashboard:     http://localhost:3001
 
 # 5) Veri ingest etmek için proje klasöründe "data" klasörü oluştur
-# Ingestlenecek verileri "data" klasörünün içine aktar.
-# Ingest işlemini tamamlamak için:
+# Ingest edilecek verileri "data" klasörünün içine aktar.
+# Ardından ingest işlemini tamamlamak için:
 docker exec -it api python -m app.ingest
 
 # 6) Servisleri durdurmak için
