@@ -26,6 +26,8 @@ docker compose build
 docker compose up -d
 
 # 5) Ollama container'ı içinde modeli indir
+# (İlk seferde TLS hatası alırsanız önce Ollama imajını güncelleyin:
+#  docker pull ollama/ollama:latest && docker compose up -d)
 docker exec -it ollama ollama pull gpt-oss:20b
 
 # 6) Veri ingest için data klasörünü oluştur
