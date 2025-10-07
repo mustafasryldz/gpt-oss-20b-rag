@@ -22,6 +22,9 @@ cp .env.example .env
 # 3) Ollama modelini indir
 ollama pull gpt-oss:20b
 
+# Eğer Ollama Docker container’ı içinde çalışıyorsa:
+docker exec -it ollama ollama pull gpt-oss:20b
+
 # 4) Docker Compose ile tüm servisleri ayağa kaldır
 docker compose up -d --build
 
