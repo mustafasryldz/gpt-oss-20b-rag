@@ -32,7 +32,9 @@ docker compose up -d --build
 # Prometheus metrics:    http://localhost:8000/metrics
 # Grafana dashboard:     http://localhost:3001
 
-# 5) Veri ingest etmek için (örnek):
+# 5) Veri ingest etmek için proje klasörüne "data" klasörü oluştur
+# Ingestlenecek verileri "data" klasörünün içine aktar.
+# Ingest işlemini tamamlamak için:
 docker exec -it api python -m app.ingest
 
 # 6) Servisleri durdurmak için
