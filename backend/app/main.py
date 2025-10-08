@@ -225,7 +225,7 @@ async def answer(req: dict):
     # 3) Ollama chat çağrısı + süre ölçümü
     t0 = time.perf_counter()
     try:
-        async with httpx.AsyncClient(timeout=120.0) as client:
+        async with httpx.AsyncClient(timeout=300.0) as client:
             resp = await client.post("http://ollama:11434/api/chat", json=payload)
         if resp.status_code >= 400:
             # anlamlı hata mesajı döndür
@@ -357,7 +357,7 @@ async def eval_generation(req: dict):
     faith_scores: List[float] = []
 
     # Cevap üretiminde /answer’daki şablona benzer chat çağrısı
-    async with httpx.AsyncClient(timeout=180.0) as client:
+    async with httpx.AsyncClient(timeout=300.0) as client:
         for ex in samples:
             q = (ex.get("query") or "").strip()
             positives = ex.get("positive") or []
