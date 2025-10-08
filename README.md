@@ -19,23 +19,32 @@ cp .env.example .env
 # Windows PowerShell:
 # copy .env.example .env
 
-# 3) Docker image'larını build et
+# 3) Gerekli klasörleri oluştur
+# (Veri klasörü + runtime volume dizinleri)
+mkdir volumes
+mkdir volumes/qdrant
+mkdir volumes/ollama
+mkdir volumes/grafana
+mkdir volumes/prometheus
+
+# 4) Veri ingest için data klasörünü oluştur
+mkdir data
+# Veri dosyalarını buraya aktar
+
+# 5) Docker image'larını build et
 docker compose build
 
-# 4) Servisleri başlat (ollama, api, ui, qdrant, grafana, prometheus)
+# 6) Servisleri başlat (ollama, api, ui, qdrant, grafana, prometheus)
 docker compose up -d
 
-# 5) Ollama container'ı içinde modeli indir
+# 7) Ollama container'ı içinde modeli indir
 # (İlk seferde TLS hatası alırsanız önce Ollama imajını güncelleyin:
 #  docker pull ollama/ollama:latest && docker compose up -d)
 docker exec -it ollama ollama pull gpt-oss:20b
 
-# 6) Veri ingest için data klasörünü oluştur
-mkdir data
-# Windows: mkdir data
-# Veri dosyalarını buraya aktar
 
-# 7) Ingest işlemini başlat
+
+# 8) Ingest işlemini başlat
 docker exec -it api python -m app.ingest
 # (İlk çalıştırmada Hugging Face'ten BGE-M3 ve BGE-Reranker modelleri indirilecek (~4 GB toplam).
 # Bu işlem sırasında tokenizer.json, pytorch_model.bin, model.safetensors gibi dosyalar otomatik olarak indirilir.
@@ -50,6 +59,6 @@ docker exec -it api python -m app.ingest
 
 
 
-# 8) Servisleri durdurmak için
+# 9) Servisleri durdurmak için
 docker compose down
 # (veya sadece geçici durdurma için: docker compose stop)
