@@ -6,6 +6,10 @@ Vector DB → Qdrant, Fusion → RRF + BM25, Reranker → BGE-Reranker-v2-M3,
 Metrics → Prometheus + Grafana.
 
 ---
+> ⚠️ **Donanım Uyarısı:**  
+> GPT-OSS-20B modeli oldukça büyük bir dil modelidir (~13 GB).  
+> Çalıştırmadan önce sisteminizin en az **12 GB VRAM** ve **16–32 GB RAM** kapasitesine sahip olduğundan emin olun.  
+> Düşük donanımlı sistemlerde model yüklenemeyebilir veya çok yavaş çalışabilir.
 
 ## Projeyi Çalıştırmak İçin
 
